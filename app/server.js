@@ -56,9 +56,11 @@ function cartView(session) {
   });
   const subtotal = items.reduce((sum, i) => sum + i.price * i.qty, 0);
   const rate = session.discount ? DISCOUNT_CODES[session.discount] : 0;
-  // Seeded defect PB-001: the discount is applied to subtotal + shipping instead of the subtotal.
-  const total = round2((subtotal + SHIPPING) * (1 - rate));
-  return { items, subtotal, shipping: SHIPPING, discount: session.discount, total };
+  // Fix PB-001: discount applies to subtotal only, not subtotal + shipping
+  // Fix: shipping only applies when cart has items
+  const shipping = items.length > 0 ? SHIPPING : 0;
+  const total = round2(subtotal * (1 - rate) + shipping);
+  return { items, subtotal, shipping, discount: session.discount, total };
 }
 
 function json(res, status, body) {

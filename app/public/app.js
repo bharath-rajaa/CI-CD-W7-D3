@@ -74,8 +74,8 @@ async function addToCart(productId) {
 
 async function removeFromCart(productId) {
   const { data } = await api(`/api/cart/${productId}`, { method: 'DELETE' });
-  // Seeded defect PB-002: totals are not refreshed after an item is removed.
   renderItems(data);
+  renderTotals(data);
 }
 
 $('apply-discount').addEventListener('click', async () => {
