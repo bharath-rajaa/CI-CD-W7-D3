@@ -20,6 +20,8 @@ test.describe('Shopping cart', () => {
     await expect(page.getByTestId('cart-item')).toHaveCount(1);
     // 60 keyboard + 5 shipping
     await expect(page.getByTestId('cart-total')).toHaveText('$90.00');
+
+    
   });
 
   test('applies SAVE10 discount to the cart total', { tag: '@regression' }, async ({ page }) => {
