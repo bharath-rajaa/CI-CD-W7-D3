@@ -29,7 +29,9 @@ export default defineConfig({
   webServer: {
     command: 'node app/server.js',
     url: `${baseURL}/api/health`,
-    reuseExistingServer: !process.env.CI,
+    // Jenkins runs smoke and regression as separate Playwright processes. Reuse
+    // the app if the previous process left it listening on the health-check URL.
+    reuseExistingServer: true,
     env: { ...process.env, PORT: port } as Record<string, string>,
     timeout: 20_000,
   },
