@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Demo Shop</title>
+  <style>
+    body { font-family: system-ui, sans-serif; max-width: 760px; margin: 2rem auto; padding: 0 1rem; }
+    section { border: 1px solid #ddd; border-radius: 8px; padding: 1rem; margin-bottom: 1rem; }
+    li { margin: .4rem 0; }
+    input { padding: .4rem; margin-right: .3rem; }
+    button { padding: .4rem .7rem; }
+    [role="alert"] { color: #b00020; }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Demo Shop</h1>
+    <div>
+      <span data-testid="user-name" hidden></span>
+      <button data-testid="logout-button" hidden>Log out</button>
+    </div>
+  </header>
+
+  <section>
+    <form id="login-form">
+      <h2>Log in</h2>
+      <input data-testid="login-email" type="email" placeholder="Email" autocomplete="username">
+      <input data-testid="login-password" type="password" placeholder="Password" autocomplete="current-password">
+      <button data-testid="login-submit" type="submit">Log in</button>
+      <p data-testid="login-error" role="alert"></p>
+    </form>
+  </section>
+
+  <section>
+    <h2>Products</h2>
+    <input data-testid="search-input" placeholder="Search products">
+    <ul data-testid="results"></ul>
+    <p data-testid="empty-state" hidden>No products match your search.</p>
+  </section>
+
+  <section>
+    <h2>Cart</h2>
+    <ul data-testid="cart-items"></ul>
+    <p>Shipping: $5.00</p>
+    <p>Total: <span data-testid="cart-total">$0.00</span></p>
+    <input data-testid="discount-code" placeholder="Discount code">
+    <button data-testid="apply-discount" type="button">Apply</button>
+    <p data-testid="discount-message"></p>
+  </section>
+
+  <section>
+    <h2>Checkout</h2>
+    <form id="checkout">
+      <input data-testid="shipping-address" placeholder="Shipping address">
+      <button data-testid="place-order" type="submit">Place order</button>
+      <p data-testid="checkout-error" role="alert"></p>
+    </form>
+    <p data-testid="order-confirmation" hidden>Order <span data-testid="order-id"></span> placed.</p>
+  </section>
+
+  <script src="/app.js"></script>
+</body>
+</html>

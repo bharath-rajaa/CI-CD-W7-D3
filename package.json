@@ -1,0 +1,28 @@
+{
+  "name": "playwright-regression-lab",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Playwright regression suite and triage lab: grouping, parallelism, isolation, failure triage and AI-assisted clustering validation",
+  "scripts": {
+    "app": "node app/server.js",
+    "test": "playwright test",
+    "test:smoke": "playwright test --grep @smoke",
+    "test:regression": "playwright test --grep \"@smoke|@regression\"",
+    "test:parallel": "playwright test --workers=4",
+    "test:isolated": "playwright test --workers=1",
+    "test:headed": "playwright test --headed --project=chromium",
+    "report": "playwright show-report reports/html",
+    "runtime": "node triage/runtime.mjs",
+    "triage": "node triage/triage.mjs",
+    "cluster": "node triage/cluster.mjs",
+    "cluster:ai": "node triage/ai-cluster.mjs",
+    "validate:clusters": "node triage/validate-clusters.mjs"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.47.2",
+    "@types/node": "^20.14.0"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}

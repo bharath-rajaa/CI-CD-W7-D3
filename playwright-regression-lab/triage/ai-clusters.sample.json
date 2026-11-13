@@ -1,0 +1,8 @@
+{
+  "method": "llm-assisted (SAMPLE output, for offline use; replace with real output via npm run cluster:ai)",
+  "clusters": [
+    { "id": "A1", "label": "server-side discount calculation", "tests": ["applies SAVE10 discount to the cart total"] },
+    { "id": "A2", "label": "client does not refresh total after remove", "tests": ["removes a product and updates the total"] },
+    { "id": "A3", "label": "test asserts before debounced search settles", "tests": ["search results update as the user types"] }
+  ]
+}
