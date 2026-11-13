@@ -1,5 +1,0 @@
-{
-  "applies SAVE10 discount to the cart total": "PB-001 discount applied to subtotal + shipping",
-  "removes a product and updates the total": "PB-002 cart total not refreshed after remove",
-  "search results update as the user types": "TB-001 assertion runs before debounce settles"
-}
