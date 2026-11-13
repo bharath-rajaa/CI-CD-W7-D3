@@ -1,5 +1,9 @@
 pipeline {
     agent any
+    triggers {
+        //pollSCM('* * * 1 *')
+        githubPush()
+    }
     options {
         timeout(time: 30, unit: 'MINUTES')
         disableConcurrentBuilds()
