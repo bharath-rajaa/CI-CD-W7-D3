@@ -9,6 +9,7 @@ pipeline {
         disableConcurrentBuilds()
     }
     stages {
+        
         stage('Install') {
             steps {
                 bat 'node --version'
@@ -28,6 +29,7 @@ pipeline {
                 }
             }
         }
+
     }
     post {
         always {
